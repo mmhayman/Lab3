@@ -8,37 +8,39 @@ public class PowersLab3 {
 
         Scanner scan = new Scanner(System.in);
 
+        String choice = "y";
 
-        String choice = "";
-        String choice1 = "y";
+        do {
+            System.out.print("Please enter an integer: "); // get user input
+            int userNum = scan.nextInt();
 
+            String table = "Number" + "     " + "Squared" + "    " + "Cubed";  // creating the table
 
+            String table1 = "======" + "     " + "=======" + "    " + "======"; // creating the table
+            System.out.println(table);
+            System.out.println(table1);
 
+            int numberSquared = 0;
+            int numberCubed = 0;
 
-        System.out.println("Please enter an integer: "); // get user input
-        int userNum = scan.nextInt();
+            String out = "";
+            for (int i = 1; i <= userNum; i++) {
 
-            System.out.println("Number" + "     " + "Squared" + "    " + "Cubed");
-            System.out.println("======" + "     " + "=======" + "    " + "======");
+                numberSquared = (int) Math.pow(i, 2);
+                numberCubed = (int) Math.pow(i, 3);
 
-            for (int i = 1; i < userNum; i++) {
-                i = userNum;
-                int numberSquared = (int) Math.pow(i, 2);
-                int numberCubed = (int) Math.pow( i, 3 );
-
-                String out = ("   " + i + "    " + numberSquared + "     " + "    " + numberCubed);
-
+                out = ( i + "            " +  numberSquared  + "           " + numberCubed );
                 System.out.println(out);
-
-                while (choice.equalsIgnoreCase("y")) {
-                    System.out.println("Do you want to continue? (y/n)");
-                    choice1 = scan.nextLine();
-
-                }
-                System.out.println("Goodbye!");
             }
 
-            }
 
+            System.out.println("Do you want to continue? (y/n)");
+            choice = scan.next();
+            System.out.println();
+
+        }
+        while (!choice.equalsIgnoreCase("n"));
     }
+
+}
 
